@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-9">
+            <p class="lead">Informe algum dado do usuário para inciar a pesquisa...</p>
+            <div class="control-group form-inline">
+                <form name="myForm">
+                    <h2 class="muted">Buscar por {{findByType(search)| lowercase}}</h2>
+                    <input type="search" id="search" name="search" placeholder="CPF, login único, nome, e-mail, identificador..."
+                           ng-model="search"  autocomplete="autocomplete" required="required" autofocus="autofocus" class="form-control"
+                           style="width:320px;" ng-minlength="3" />
+                    <button class="btn btn-info" ng-disabled="!search" ><span class="glyphicon glyphicon-search"></span>  Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div ng-show="search">-->
+    <div ng-include="'view1/list.html'"></div>
+<!--</div>-->

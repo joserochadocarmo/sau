@@ -1,0 +1,27 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nome<span class="badge"> {{filtradaPessoas.length}}</span></th>
+        <th>CPF</th>
+        <th>Login Único</th>
+        <th>E-mail</th>
+        <th>Identificador</th>
+        <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="pessoa in filtradaPessoas =(pessoas.cast | filter:search | orderBy:'nome')">
+        <td><a ng-click="open('lg',pessoa.cpf)">{{pessoa.nome}}</a></td>
+        <td>{{pessoa.cpf}}</td>
+        <td>{{pessoa.login_unico}}</td>
+        <td>
+            <div ng-repeat="email in pessoa.emails">
+                {{email}}
+            </div>
+        </td>
+        <td align="center">{{pessoa.id}}</td>
+        <td><a ng-click="open('lg',pessoa.cpf)"><i class="glyphicon glyphicon-list-alt"></i></a></td>
+    </tr>
+    </tbody>
+</table>
+<h3 ng-hide="filtradaPessoas.length" class="cssFade"> <span class="label label-warning">Nenhum registro encontrado...</span></h3>
